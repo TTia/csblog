@@ -11,14 +11,23 @@ namespace Blog.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Post
     {
         public System.Guid id { get; set; }
         public System.Guid authorId { get; set; }
+        [Required(ErrorMessage = "Titolo mancante.")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Il titolo deve essere compreso fra 5 e 100 caratteri.")]
         public string title { get; set; }
+        [Required(ErrorMessage="Articolo mancante.")]
+        [StringLength(int.MaxValue, MinimumLength = 5, ErrorMessage = "Il post deve essere almeno di 5 caratteri.")]
         public string body { get; set; }
+        
+        [DisplayFormat(DataFormatString = "Creato il {0:MM/dd/yy @ H:mm}")]
         public System.DateTime createdAt { get; set; }
+
+        [DisplayFormat(DataFormatString = "Aggiornato il {0:MM/dd/yy @ H:mm}")]
         public System.DateTime updatedAt { get; set; }
     
         public virtual Author Author { get; set; }

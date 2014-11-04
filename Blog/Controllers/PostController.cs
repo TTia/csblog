@@ -53,6 +53,9 @@ namespace Blog.Controllers
             if (ModelState.IsValid)
             {
                 post.id = Guid.NewGuid();
+                post.createdAt = post.updatedAt = DateTime.Now;
+                post.authorId = db.Authors.First<Author>().id;
+
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,9 +87,11 @@ namespace Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="id,authorId,title,body,createdAt,updatedAt")] Post post)
+        //public ActionResult Edit([Bind(Include = "title,body")] Post post)
         {
             if (ModelState.IsValid)
             {
+                post.updatedAt = DateTime.Now;
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
