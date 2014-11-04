@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CSBlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hpassword" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="hsalt" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="createdAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="authorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="body" Type="text" Nullable="false" />
+          <Property Name="createdAt" Type="datetime" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Post_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="authorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CSBlogModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Post_Author" Association="Self.FK_Post_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CSBlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hpassword" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hsalt" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_Post_Author" FromRole="Author" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="authorId" Type="Guid" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Post_Author" FromRole="Post" ToRole="Author" />
+        </EntityType>
+        <Association Name="FK_Post_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="authorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CSBlogEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <AssociationSet Name="FK_Post_Author" Association="Self.FK_Post_Author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CSBlogModelStoreContainer" CdmEntityContainer="CSBlogEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="CSBlogModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="hpassword" ColumnName="hpassword" />
+                <ScalarProperty Name="hsalt" ColumnName="hsalt" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="CSBlogModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="authorId" ColumnName="authorId" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nessuno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

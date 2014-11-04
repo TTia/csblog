@@ -1,0 +1,40 @@
+﻿<div id="header">
+    <a id="logo" href="/">
+        <img alt="RBlog Logo"
+             src="@Url.Content("~/Images/aspnet.png")" height="80" />
+    </a>
+    <div id="header_title">
+        <a href="/">RBlog</a>
+    </div>
+    <div id="banner_links">
+        <!--
+        <div class="banner_link" id="login_link"
+             th:if="${session.author_id}">
+            <a href="/logout" id="log_out_link" th:text="${session.author_email}+'- Esci'"></a>
+        </div>
+        <div class="banner_link" id="login_link"
+             th:unless="${session.author_id}">
+            <a href="/login" id="log_in_link">Login</a>
+        </div>
+            -->
+        <div class="banner_link" id="author_link">
+            <a href="@Url.Action("Author", "Home")">Autore</a>
+        </div>
+        <div class="banner_link" id="abstract_link">
+            <a href="@Url.Action("Abstract", "Home")">Abstract</a>
+        </div>
+        <!--
+        <div class="banner_link" id="search_link">
+            <form accept-charset="UTF-8" action="/" method="get">
+                <div style="display: none">
+                    <input name="utf8" type="hidden" value="✓"></input>
+                </div>
+                <input type="text" placeholder="Ricerca fra i post..."
+                       id="search_input_text" name="title" class="ui-autocomplete-input"
+                       autocomplete="off"></input> <input alt="Ricerca" id="search_icon"
+                                                          src="/Images/search_32.png" type="image"></input>
+            </form>
+        </div>
+            -->
+    </div>
+</div>
