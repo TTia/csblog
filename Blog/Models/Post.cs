@@ -12,6 +12,7 @@ namespace Blog.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     
     public partial class Post
     {
@@ -19,6 +20,7 @@ namespace Blog.Models
         public System.Guid authorId { get; set; }
         [Required(ErrorMessage = "Titolo mancante.")]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Il titolo deve essere compreso fra 5 e 100 caratteri.")]
+        [Remote("CheckForDuplication", "Post")]
         public string title { get; set; }
         [Required(ErrorMessage="Articolo mancante.")]
         [StringLength(int.MaxValue, MinimumLength = 5, ErrorMessage = "Il post deve essere almeno di 5 caratteri.")]

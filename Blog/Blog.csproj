@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\aspnet.png" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Styles\application.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

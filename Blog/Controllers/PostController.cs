@@ -14,6 +14,17 @@ namespace Blog.Controllers
     {
         private CSBlogEntities db = new CSBlogEntities();
 
+        [HttpGet]
+        public JsonResult CheckForDuplication(string title)
+        {
+            bool duplicated = db.Posts.Where(p => p.title.Equals(title, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault() != null;
+            if (duplicated)
+            {
+                return Json("Il titolo è già presente.", JsonRequestBehavior.AllowGet);
+            }
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: /Post/
         public ActionResult Index()
         {
@@ -48,7 +59,7 @@ namespace Blog.Controllers
         // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="id,authorId,title,body,createdAt,updatedAt")] Post post)
+        public ActionResult Create([Bind(Include = "id,authorId,title,body,createdAt,updatedAt")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +97,7 @@ namespace Blog.Controllers
         // Per ulteriori dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="id,authorId,title,body,createdAt,updatedAt")] Post post)
+        public ActionResult Edit([Bind(Include = "id,authorId,title,body,createdAt,updatedAt")] Post post)
         //public ActionResult Edit([Bind(Include = "title,body")] Post post)
         {
             if (ModelState.IsValid)
