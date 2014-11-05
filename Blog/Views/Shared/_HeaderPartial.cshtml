@@ -4,7 +4,7 @@
              src="@Url.Content("~/Images/aspnet.png")" height="80" />
     </a>
     <div id="header_title">
-        <a href="/">RBlog</a>
+        <a href="/">@(ViewBag.PageTitle == null ? "CSBlog" : ViewBag.PageTitle)</a>
     </div>
     <div id="banner_links">
         <!--

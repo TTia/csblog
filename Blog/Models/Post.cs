@@ -35,5 +35,9 @@ namespace Blog.Models
         public System.DateTime updatedAt { get; set; }
     
         public virtual Author Author { get; set; }
+
+        public string shortenedBody { get { return body.Substring(0, Math.Min(body.Length - 1, 500)); } }
+
+        public bool isLongArticle { get { return body.Length > 500; } }
     }
 }

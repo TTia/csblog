@@ -1,7 +1,8 @@
 ﻿@model Blog.Models.Post
 
 @{
-    ViewBag.Title = "Modifica "+Model.title;
+    ViewBag.Title = "Aggiorna " + Model.title;
+    ViewBag.PageTitle = Model.title;
 }
 
 @using (Html.BeginForm())

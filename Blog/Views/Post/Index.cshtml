@@ -4,54 +4,50 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.updatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author.email)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.updatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author.email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
-</table>
+<div class='posts'>
+    <div id="notice">
+        <img alt="Bulb" border="0" height="32" src="/images/bulb.png"
+             title="Operazione completata" width="32" />
+        <p>Notice</p>
+    </div>
+    <div id='new_post_action' class="post">
+        <a title="Crea un nuovo post!" href="/Post/Create">
+            <img src="/Images/add.png" height="48" width="48">
+        </a>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class='post'>
+            <p class="post_title">
+                @Html.ActionLink(item.title, "Details", new { id = item.id })
+            </p>
+            <div class="post_detail">
+                @Html.DisplayFor(modelItem => item.createdAt)
+            </div>
+            @if (!item.createdAt.Equals(item.updatedAt))
+            {
+                <div class="post_detail">
+                    @Html.DisplayFor(modelItem => item.updatedAt)
+                </div>
+            }
+            <p class="post_content">
+                @Html.DisplayFor(modelItem => item.shortenedBody)
+            </p>
+            @if (item.isLongArticle)
+            {
+                <div class="post_content">
+                    <p class="post_content"></p>
+                    @Html.ActionLink("Leggi il resto", "Details", new { id = item.id })
+                </div>
+            }
+            <div class="post_actions">
+                <a title="Aggiorna @(item.title)" class="edit_post_button" href="/Post/Edit/@(item.id)">
+                    <img src="/Images/write.png" height="32" width="32">
+                </a>
+                <a title="Rimuovi @(item.title)" class="edit_post_button" href="/Post/Delete/@(item.id)">
+                    <img src="/Images/remove.png" height="32" width="32">
+                </a>
+            </div>
+        </div>
+    }
+</div>

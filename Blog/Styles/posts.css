@@ -1,50 +1,42 @@
 .posts #notice {
-	margin: 1em 15%;
-	text-align: center;
+    margin: 1em 15%;
+    text-align: center;
 }
 
-.posts #notice p {
-	color: forestgreen;
-}
+    .posts #notice p {
+        color: forestgreen;
+    }
 
 .posts #new_post_action {
-	text-align: center;
+    text-align: center;
 }
 
 .posts .post {
-	margin: 1em 15%;
-	border-bottom: 1px solid #BBBBBB;
-	overflow: auto;
-	font-family: sans-serif;
-	margin: 1em 15%;
+    margin: 1em 15%;
+    border-bottom: 1px solid #BBBBBB;
+    overflow: auto;
+    font-family: sans-serif;
+    margin: 1em 15%;
 }
 
-.posts .post .post_title a {
-	text-decoration: none;
-	font-size: 24px;
-	margin-bottom: .5em;
-	line-height: 35px;
-	font-family: Montserrat, sans-serif;
-	color: #34302d;
-}
+    .posts .post .post_title a {
+        text-decoration: none;
+        font-size: 24px;
+        margin-bottom: .5em;
+        line-height: 35px;
+        font-family: Montserrat, sans-serif;
+        color: #34302d;
+    }
 
 .post .post_detail {
-	color: #666666;
+    color: #666666;
 }
 
 .post .post_content a {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .posts .post_actions {
-	margin-bottom: .5em;
-	float: right;
-}
-
-.posts .post_actions .post_action {
-	display: inline;
-	margin-top: 0em;
-	margin-bottom: 0.5em;
-	margin-left: 0%;
-	margin-right: 0%;
+    margin-bottom: .5em;
+    float: right;
 }
