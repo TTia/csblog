@@ -102,8 +102,11 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                post.updatedAt = DateTime.Now;
-                db.Entry(post).State = EntityState.Modified;
+                var previousVersion = db.Posts.Find(post.id);
+                previousVersion.updatedAt = DateTime.Now;
+                previousVersion.title = post.title;
+                previousVersion.body = post.body;
+                db.Entry(previousVersion).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

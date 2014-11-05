@@ -21,9 +21,11 @@ namespace Blog.Models
         [Required(ErrorMessage = "Titolo mancante.")]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Il titolo deve essere compreso fra 5 e 100 caratteri.")]
         [Remote("CheckForDuplication", "Post")]
+        [Display(Name = "Titolo", Description = "Inserisci in questo campo il titolo che vuoi dare al tuo articolo.")]
         public string title { get; set; }
         [Required(ErrorMessage="Articolo mancante.")]
         [StringLength(int.MaxValue, MinimumLength = 5, ErrorMessage = "Il post deve essere almeno di 5 caratteri.")]
+        [Display(Name = "Post", Description = "Inserisci in questo campo il contenuto del tuo post.")]
         public string body { get; set; }
         
         [DisplayFormat(DataFormatString = "Creato il {0:MM/dd/yy @ H:mm}")]
