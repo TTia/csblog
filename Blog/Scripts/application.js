@@ -27,7 +27,7 @@ function autocomplete() {
         $("#search_input_text").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "/posts/autocomplete_title",
+                    url: "/Post/AutocompleteTitle",
                     data: {title: $("#search_input_text").val()},
                     success: function (data) {
                         console.log(data);
@@ -53,7 +53,7 @@ function switch_easter_egg() {
     var woodstock = $('#woodstock');
     if (!woodstock.length) {
         var img = document.createElement("img");
-        img.src = "/images/woodstock.png";
+        img.src = "/Images/woodstock.png";
         img.id = "woodstock";
         img.width = "48";
         img.height = "48";

@@ -14,11 +14,23 @@ namespace Blog.Controllers
     {
         private CSBlogEntities db = new CSBlogEntities();
 
-        [HttpGet]
-        public JsonResult CheckForDuplication(string title)
+        public JsonResult AutocompleteTitle(string title)
         {
             bool duplicated = db.Posts.Where(p => p.title.Equals(title, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault() != null;
             if (duplicated)
+            {
+                return Json("Il titolo è già presente.", JsonRequestBehavior.AllowGet);
+            }
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+        
+        [HttpGet]
+        public JsonResult CheckForDuplication(Guid? id, string title)
+        {
+            var post = db.Posts
+                .Where(p => p.title.Equals(title, StringComparison.CurrentCultureIgnoreCase))
+                .FirstOrDefault();
+            if (post != null && (id == null || !post.id.Equals(id)))
             {
                 return Json("Il titolo è già presente.", JsonRequestBehavior.AllowGet);
             }
@@ -69,6 +81,7 @@ namespace Blog.Controllers
 
                 db.Posts.Add(post);
                 db.SaveChanges();
+                ViewBag.notice = String.Format("Il post '%s' è stato creato con successo.", post.title);
                 return RedirectToAction("Index");
             }
 
@@ -108,6 +121,7 @@ namespace Blog.Controllers
                 previousVersion.body = post.body;
                 db.Entry(previousVersion).State = EntityState.Modified;
                 db.SaveChanges();
+                ViewBag.notice = String.Format("Il post '%s' è stato modificato con successo.", post.title);
                 return RedirectToAction("Index");
             }
             ViewBag.authorId = new SelectList(db.Authors, "id", "email", post.authorId);
@@ -137,6 +151,7 @@ namespace Blog.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
+            ViewBag.notice = String.Format("Il post '%s' è stato cancellato con successo.", post.title);
             return RedirectToAction("Index");
         }
 

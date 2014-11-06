@@ -20,7 +20,7 @@ namespace Blog.Models
         public System.Guid authorId { get; set; }
         [Required(ErrorMessage = "Titolo mancante.")]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Il titolo deve essere compreso fra 5 e 100 caratteri.")]
-        [Remote("CheckForDuplication", "Post")]
+        [Remote("CheckForDuplication", "Post", AdditionalFields = "id")]
         [Display(Name = "Titolo", Description = "Inserisci in questo campo il titolo che vuoi dare al tuo articolo.")]
         public string title { get; set; }
         [Required(ErrorMessage="Articolo mancante.")]
@@ -36,7 +36,7 @@ namespace Blog.Models
     
         public virtual Author Author { get; set; }
 
-        public string shortenedBody { get { return body.Substring(0, Math.Min(body.Length - 1, 500)); } }
+        public string shortenedBody { get { return body.Substring(0, Math.Min(body.Length, 500)); } }
 
         public bool isLongArticle { get { return body.Length > 500; } }
     }

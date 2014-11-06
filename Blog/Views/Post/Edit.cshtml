@@ -21,6 +21,7 @@
             <div>
                 @Html.EditorFor(model => model.title)
                 <div class="error_explanation">
+                    @Html.HiddenFor(model => model.id)
                     @Html.ValidationMessageFor(model => model.title)
                 </div>
             </div>
