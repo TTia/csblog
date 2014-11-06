@@ -14,16 +14,16 @@ namespace Blog.Controllers
     {
         private CSBlogEntities db = new CSBlogEntities();
 
+        [HttpGet]
         public JsonResult AutocompleteTitle(string title)
         {
-            bool duplicated = db.Posts.Where(p => p.title.Equals(title, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault() != null;
-            if (duplicated)
-            {
-                return Json("Il titolo è già presente.", JsonRequestBehavior.AllowGet);
-            }
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var postTitles = db.Posts
+                .Where(p => p.title.ToLower().Contains(title.ToLower()))
+                .Select(p => p.title)
+                .ToList();
+            return Json(postTitles, JsonRequestBehavior.AllowGet);
         }
-        
+
         [HttpGet]
         public JsonResult CheckForDuplication(Guid? id, string title)
         {
@@ -81,8 +81,8 @@ namespace Blog.Controllers
 
                 db.Posts.Add(post);
                 db.SaveChanges();
-                ViewBag.notice = String.Format("Il post '%s' è stato creato con successo.", post.title);
-                return RedirectToAction("Index");
+                TempData["notice"] = String.Format("Il post '{0}' è stato creato con successo.", post.title);
+                return RedirectToAction("Details", new { post.id });
             }
 
             ViewBag.authorId = new SelectList(db.Authors, "id", "email", post.authorId);
@@ -121,8 +121,8 @@ namespace Blog.Controllers
                 previousVersion.body = post.body;
                 db.Entry(previousVersion).State = EntityState.Modified;
                 db.SaveChanges();
-                ViewBag.notice = String.Format("Il post '%s' è stato modificato con successo.", post.title);
-                return RedirectToAction("Index");
+                TempData["notice"] = String.Format("Il post '{0}' è stato modificato con successo.", post.title);
+                return RedirectToAction("Details", new { post.id });
             }
             ViewBag.authorId = new SelectList(db.Authors, "id", "email", post.authorId);
             return View(post);
@@ -151,7 +151,7 @@ namespace Blog.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            ViewBag.notice = String.Format("Il post '%s' è stato cancellato con successo.", post.title);
+            TempData["notice"] = String.Format("Il post '{0}' è stato cancellato con successo.", post.title);
             return RedirectToAction("Index");
         }
 

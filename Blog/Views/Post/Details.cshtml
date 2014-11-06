@@ -5,6 +5,7 @@
 }
 
 <div class='posts'>
+    @Html.Partial("_NoticePartial")
     <div class='post'>
         <p class="post_title">
             @Html.ActionLink(Model.title, "Details", new { id = Model.id })

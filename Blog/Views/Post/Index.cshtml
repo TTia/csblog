@@ -5,14 +5,7 @@
 }
 
 <div class='posts'>
-    @if (ViewBag.notice != null)
-    {
-        <div id="notice">
-            <img alt="Bulb" border="0" height="32" src="/images/bulb.png"
-                 title="Operazione completata" width="32" />
-            <p>ViewBag.notice</p>
-        </div>
-    }
+    @Html.Partial("_NoticePartial")
     <div id='new_post_action' class="post">
         <a title="Crea un nuovo post!" href="/Post/Create">
             <img src="/Images/add.png" height="48" width="48">

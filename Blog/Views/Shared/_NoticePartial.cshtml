@@ -1,0 +1,8 @@
+﻿@if (TempData["notice"] != null)
+{
+    <div id="notice">
+        <img alt="Bulb" border="0" height="32" src="/images/bulb.png"
+             title="Operazione completata" width="32" />
+        <p>@TempData["notice"]</p>
+    </div>
+}
