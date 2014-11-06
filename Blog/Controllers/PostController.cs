@@ -38,10 +38,23 @@ namespace Blog.Controllers
         }
 
         // GET: /Post/
-        public ActionResult Index()
+        public ActionResult Index(string title)
         {
-            var posts = db.Posts.Include(p => p.Author);
-            return View(posts.ToList());
+            //var posts = db.Posts.Include(p => p.Author);
+            IQueryable<Post> posts = null;
+            if (title != null)
+            {
+                posts = db.Posts.Where(p => p.title.Equals(title));
+                if (posts.Count() == 0)
+                {
+                    posts = db.Posts.Where(p => p.title.ToLower().Contains(title.ToLower()));
+                }
+            }
+            else
+            {
+                posts = db.Posts;
+            }
+            return View(posts.OrderByDescending(p => p.updatedAt).ToList());
         }
 
         // GET: /Post/Details/5
