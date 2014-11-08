@@ -1,0 +1,13 @@
+﻿@if (HttpContext.Current.Session["author_id"] != null)
+{
+    Guid? id = ViewData["id"] as Guid?;
+    string title = ViewData["title"] as string;
+    <div class="post_actions">
+        <a title="Aggiorna @title" class="edit_post_button" href="/Post/Edit/@id">
+            <img src="/Images/write.png" height="32" width="32">
+        </a>
+        <a title="Rimuovi @title" class="edit_post_button" href="/Post/Delete/@id">
+            <img src="/Images/remove.png" height="32" width="32">
+        </a>
+    </div>
+}

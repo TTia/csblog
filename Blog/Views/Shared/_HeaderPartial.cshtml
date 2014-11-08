@@ -7,16 +7,22 @@
         <a href="/">@(ViewBag.PageTitle == null ? "CSBlog" : ViewBag.PageTitle)</a>
     </div>
     <div id="banner_links">
-        <!--
-        <div class="banner_link" id="login_link"
-             th:if="${session.author_id}">
-            <a href="/logout" id="log_out_link" th:text="${session.author_email}+'- Esci'"></a>
-        </div>
-        <div class="banner_link" id="login_link"
-             th:unless="${session.author_id}">
-            <a href="/login" id="log_in_link">Login</a>
-        </div>
-            -->
+        @{
+            if (HttpContext.Current.Session["author_id"] != null)
+            {
+                <div class="banner_link" id="login_link">
+                    <a href="@Url.Action("Logout", "Author")" id="log_out_link">
+                        @HttpContext.Current.Session["author_email"] -  Esci
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="banner_link" id="login_link">
+                    <a href="@Url.Action("Login", "Author")" id="log_in_link">Login</a>
+                </div>
+            }
+        }
         <div class="banner_link" id="author_link">
             <a href="@Url.Action("Author", "Home")">Autore</a>
         </div>

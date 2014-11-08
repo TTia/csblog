@@ -22,13 +22,6 @@
         <p class="post_content">
             @Html.DisplayFor(model => model.body)
         </p>
-        <div class="post_actions">
-            <a title="Aggiorna @(Model.title)" class="edit_post_button" href="/Post/Edit/@(Model.id)">
-                <img src="/Images/write.png" height="32" width="32">
-            </a>
-            <a title="Rimuovi @(Model.title)" class="edit_post_button" href="/Post/Delete/@(Model.id)">
-                <img src="/Images/remove.png" height="32" width="32">
-            </a>
-        </div>
+        @Html.Partial("_PostActionsPartial", new ViewDataDictionary { { "id", Model.id }, {"title", Model.title} });
     </div>
 </div>

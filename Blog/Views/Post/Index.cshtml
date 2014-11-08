@@ -36,14 +36,7 @@
                     @Html.ActionLink("Leggi il resto", "Details", new { id = item.id })
                 </div>
             }
-            <div class="post_actions">
-                <a title="Aggiorna @(item.title)" class="edit_post_button" href="/Post/Edit/@(item.id)">
-                    <img src="/Images/write.png" height="32" width="32">
-                </a>
-                <a title="Rimuovi @(item.title)" class="edit_post_button" href="/Post/Delete/@(item.id)">
-                    <img src="/Images/remove.png" height="32" width="32">
-                </a>
-            </div>
+            @Html.Partial("_PostActionsPartial", new ViewDataDictionary { { "id", item.id }, { "title", item.title } });
         </div>
     }
 </div>

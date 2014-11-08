@@ -11,6 +11,7 @@ namespace Blog.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Author
     {
@@ -20,7 +21,9 @@ namespace Blog.Models
         }
     
         public System.Guid id { get; set; }
+        [Display(Name = "Email", Description = "Inserisci la tua email.")]
         public string email { get; set; }
+        [Display(Name = "Password", Description = "Inserisci la tua password.")]
         public string hpassword { get; set; }
         public string hsalt { get; set; }
         public System.DateTime createdAt { get; set; }
