@@ -19,8 +19,9 @@ namespace Blog.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("1_hello_atdd")]
-    public partial class _1_Hello_AtddFeature
+    [NUnit.Framework.DescriptionAttribute("Hello RBlog!")]
+    [NUnit.Framework.CategoryAttribute("cap1")]
+    public partial class HelloRBlogFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -32,8 +33,9 @@ namespace Blog.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "1_hello_atdd", "In order to avoid silly mistakes\nAs a math idiot\nI want to be told the sum of two" +
-                    " numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("it-IT"), "Hello RBlog!", "Per leggere i post e visitare il blog\r\nCome Lettore\r\nVorrei che RBlog permettesse" +
+                    " la navigazione", ProgrammingLanguage.CSharp, new string[] {
+                        "cap1"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,22 +68,39 @@ namespace Blog.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Visita alla pagina iniziale")]
+        public virtual void VisitaAllaPaginaIniziale()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visita alla pagina iniziale", ((string[])(null)));
 #line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Then("posso visitare la pagina dell\'autore", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.And("posso visitare la pagina dell\'abstract", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Visita alla pagina dell\'autore e alla pagina dell\'abstract")]
+        [NUnit.Framework.TestCaseAttribute("Autore", null)]
+        [NUnit.Framework.TestCaseAttribute("Abstract", null)]
+        public virtual void VisitaAllaPaginaDellAutoreEAllaPaginaDellAbstract(string nomeDellaPagina, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visita alla pagina dell\'autore e alla pagina dell\'abstract", exampleTags);
+#line 13
+  this.ScenarioSetup(scenarioInfo);
+#line 14
+    testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+#line 15
+    testRunner.When(string.Format("navigo verso \"{0}\"", nomeDellaPagina), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 16
+    testRunner.Then(string.Format("la pagina è intitolata \"{0}\"", nomeDellaPagina), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 17
+    testRunner.And("posso tornare alla pagina iniziale", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }

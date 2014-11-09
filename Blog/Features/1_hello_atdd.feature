@@ -1,11 +1,22 @@
-﻿Feature: 1_hello_atdd
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿# language: it
+@cap1
+Funzionalità: Hello RBlog!
+  Per leggere i post e visitare il blog
+  Come Lettore
+  Vorrei che RBlog permettesse la navigazione
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+  Scenario: Visita alla pagina iniziale
+    Dato apro RBlog
+    Allora posso visitare la pagina dell'autore
+    E posso visitare la pagina dell'abstract
+
+  Schema dello scenario: Visita alla pagina dell'autore e alla pagina dell'abstract
+    Dato apro RBlog
+    Quando navigo verso "<nome della pagina>"
+    Allora la pagina è intitolata "<nome della pagina>"
+    E posso tornare alla pagina iniziale
+
+    Esempi: 
+      | nome della pagina |
+      | Autore            |
+      | Abstract          |

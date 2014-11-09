@@ -183,7 +183,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>1_hello_atdd.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Steps\_1_Hello_AtddSteps.cs" />
+    <Compile Include="Features\2_introducing_css.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>2_introducing_css.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\3_introducing_crud_validation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>3_introducing_crud_validation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\4_introducing_posts.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>4_introducing_posts.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\5b_introducing_easter_egging.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>5b_introducing_easter_egging.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\5_introducing_search.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>5_introducing_search.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\6_introducing_authentication.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>6_introducing_authentication.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Hooks\Hooks.cs" />
+    <Compile Include="Features\Steps\Assertions.cs" />
+    <Compile Include="Features\Steps\BaseStep.cs" />
+    <Compile Include="Features\Steps\Constraints.cs" />
+    <Compile Include="Features\Steps\Events.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,7 +246,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\packages\PhantomJS.1.9.8\tools\phantomjs\phantomjs.exe">
+      <Link>phantomjs.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\aspnet.png" />
+    <Content Include="phantomjs-license.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Styles\application.css" />
@@ -267,6 +308,30 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>1_hello_atdd.feature.cs</LastGenOutput>
     </Content>
+    <Content Include="Features\2_introducing_css.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>2_introducing_css.feature.cs</LastGenOutput>
+    </Content>
+    <Content Include="Features\3_introducing_crud_validation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>3_introducing_crud_validation.feature.cs</LastGenOutput>
+    </Content>
+    <Content Include="Features\4_introducing_posts.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>4_introducing_posts.feature.cs</LastGenOutput>
+    </Content>
+    <Content Include="Features\5b_introducing_easter_egging.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>5b_introducing_easter_egging.feature.cs</LastGenOutput>
+    </Content>
+    <Content Include="Features\5_introducing_search.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>5_introducing_search.feature.cs</LastGenOutput>
+    </Content>
+    <Content Include="Features\6_introducing_authentication.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>6_introducing_authentication.feature.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -318,6 +383,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
