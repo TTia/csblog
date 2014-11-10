@@ -97,13 +97,6 @@ namespace Blog.Features.Steps
             base.FindNotice(noticeMessage);
         }
 
-        [Then(@"il post ""(.*)"" è leggibile su CSBlog")]
-        public void AlloraIlPostELeggibileSuCSBlog(string title)
-        {
-            browser.Visit("/");
-            browser.FindCss(".post_title a", text: title).Exists();
-        }
-
         [Then(@"il post ""(.*)"" è stato cancellato con successo")]
         public void AlloraIlPostEStatoCancellatoConSuccesso(string title)
         {
@@ -117,6 +110,31 @@ namespace Blog.Features.Steps
             Assert.That(browser.HasContent(errorMessage));
         }
 
+        [Then(@"ogni post ha un titolo")]
+        public void AlloraOgniPostHaUnTitolo()
+        {
+            foreach (var post in browser.FindAllCss(".post")) {
+                Assert.That(post.FindCss(".post_title", new Options { Match = Match.Single }).Exists());
+            }
+        }
+
+        [Then(@"ogni post ha dei dettagli")]
+        public void AlloraOgniPostHaDeiDettagli()
+        {
+            foreach (var post in browser.FindAllCss(".post"))
+            {
+                Assert.That(post.FindCss(".post_detail", new Options { Match = Match.First }).Exists());
+            }
+        }
+
+        [Then(@"ogni post ha del contenuto")]
+        public void AlloraOgniPostHaDelContenuto()
+        {
+            foreach (var post in browser.FindAllCss(".post"))
+            {
+                Assert.That(post.FindCss(".post_body", new Options { Match = Match.Single }).Exists());
+            }
+        }
 
     }
 }

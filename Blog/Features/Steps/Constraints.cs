@@ -96,6 +96,14 @@ namespace Blog.Features.Steps
             }
         }
 
+        [Given(@"il post ""(.*)"" è leggibile su CSBlog")]
+        [Then(@"il post ""(.*)"" è leggibile su CSBlog")]
+        public void AlloraIlPostELeggibileSuCSBlog(string title)
+        {
+            browser.Visit("/");
+            browser.FindCss(".post_title a", text: title).Exists();
+        }
+
         [Given(@"apro la pagina per la creazione di un nuovo post")]
         public void DatoAproLaPaginaPerLaCreazioneDiUnNuovoPost()
         {

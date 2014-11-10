@@ -6,7 +6,7 @@
 
 <div class='posts'>
     @Html.Partial("_NoticePartial")
-    <div id='new_post_action' class="post">
+    <div id='new_post_action'>
         <a title="Crea un nuovo post!" href="/Post/Create" id="add_post">
             <img src="/Images/add.png" height="48" width="48" alt="Add post">
         </a>
@@ -26,17 +26,16 @@
                     @Html.DisplayFor(modelItem => item.updatedAt)
                 </div>
             }
-            <p class="post_content">
-                @Html.DisplayFor(modelItem => item.shortenedBody)
-            </p>
-            @if (item.isLongArticle)
-            {
-                <div class="post_content">
-                    <p class="post_content"></p>
+            <div class="post_content">
+                <p class="post_body">
+                    @Html.DisplayFor(modelItem => item.shortenedBody)
+                </p>
+                @if (item.isLongArticle)
+                {
                     @Html.ActionLink("Leggi il resto", "Details", new { id = item.id })
-                </div>
-            }
-            @Html.Partial("_PostActionsPartial", new ViewDataDictionary { { "id", item.id }, { "title", item.title } });
+                }
+            </div>
+            @Html.Partial("_PostActionsPartial", new ViewDataDictionary { { "id", item.id }, { "title", item.title } })
         </div>
     }
 </div>

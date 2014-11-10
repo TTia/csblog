@@ -14,7 +14,7 @@ namespace Blog.Features.Hooks
     {
         private readonly IObjectContainer _objectContainer;
         private static BrowserSession _browser;
-        public static BrowserSession browser { get { return _browser;  } }
+        public static BrowserSession browser { get { return _browser; } }
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -42,18 +42,35 @@ namespace Blog.Features.Hooks
             if (ScenarioContext.Current.ScenarioInfo.Tags.Contains("clear")
                  || FeatureContext.Current.FeatureInfo.Tags.Contains("clear"))
             {
+                login();
+
                 string LoremIpsumTitle = "Lorem Ipsum";
                 browser.Visit("/");
                 var post = browser.FindAllCss(".post")
                     .First(
-                        p => p.FindLink(LoremIpsumTitle, 
-                            new Options { TextPrecision = TextPrecision.Substring})
+                        p => p.FindLink(LoremIpsumTitle,
+                            new Options { TextPrecision = TextPrecision.Substring })
                             .Exists());
-                post.FindCss(".remove_post_button").Click();
+
                 browser.SaveScreenshot("screenshot.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                post.FindCss(".remove_post_button").Click();
                 browser.ClickButton("Confermi la rimozione?");
             }
             _browser.Dispose();
+        }
+
+        private void login()
+        {
+            if (browser.FindId("log_out_link").Exists())
+            {
+                return;
+            }
+            string password = "password";
+            browser.Visit("/");
+            browser.ClickLink("Login");
+            browser.FillIn("Email").With("ttia@csblog.io");
+            browser.FillIn("Password").With(password);
+            browser.ClickButton("Login");
         }
 
 
