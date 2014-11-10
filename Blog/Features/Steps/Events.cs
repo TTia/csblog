@@ -23,5 +23,46 @@ namespace Blog.Features.Steps
         {
             Assert.Fail();
         }
+
+        [When(@"inserisco ""(.*)"" come titolo")]
+        public void QuandoInseriscoComeTitolo(string title)
+        {
+            InsertTitle(title);
+        }
+
+        [When(@"inserisco del testo riempitivo come contenuto")]
+        public void QuandoInseriscoDelTestoRiempitivoComeContenuto()
+        {
+            InsertBody();
+        }
+
+        [When(@"inserisco ""(.*)"" come contenuto")]
+        public void QuandoInseriscoComeContenuto(string body)
+        {
+            base.InsertBody(body);
+        }
+
+
+        [When(@"salvo il post")]
+        public void QuandoSalvoIlPost()
+        {
+            SavePost();
+        }
+
+        [When(@"modifico il post ""(.*)""")]
+        public void QuandoModificoIlPost(string title)
+        {
+            var post = findPostByTitle(title);
+            post.FindCss(".edit_post_button").Click();
+        }
+
+        [When(@"cancello il post ""(.*)""")]
+        public void QuandoCancelloIlPost(string title)
+        {
+            var post = findPostByTitle(title);
+            post.FindCss(".remove_post_button").Click();
+            browser.ClickButton("Confermi la rimozione?");
+        }
+
     }
 }

@@ -72,9 +72,9 @@ namespace Blog.Features
         {
 #line 8
   #line 9
-    testRunner.Given("apro SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 10
-    testRunner.Given("mi autentico come \"ttia@sblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line hidden
         }
         
@@ -90,7 +90,7 @@ namespace Blog.Features
 #line 13
     testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 14
-    testRunner.Then("il post \"Lorem Ipsum\" è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.Then("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 15
     testRunner.Then("ogni post ha un titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 16
@@ -113,7 +113,7 @@ namespace Blog.Features
 #line 20
     testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 21
-    testRunner.And("il post \"Lorem Ipsum\" è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 22
     testRunner.Then("il contenuto del post \"Lorem Ipsum\" è un\'anteprima dell\'intero post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 23
@@ -136,7 +136,7 @@ namespace Blog.Features
 #line 27
     testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 28
-    testRunner.And("il post \"Lorem Ipsum\" è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 29
     testRunner.When("espando il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 30

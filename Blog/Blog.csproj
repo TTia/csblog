@@ -221,7 +221,6 @@
     <Compile Include="Features\Steps\BaseStep.cs" />
     <Compile Include="Features\Steps\Constraints.cs" />
     <Compile Include="Features\Steps\Events.cs" />
-    <Compile Include="Features\Steps\Page.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
