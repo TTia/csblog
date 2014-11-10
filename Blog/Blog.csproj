@@ -42,6 +42,9 @@
     <Reference Include="Coypu">
       <HintPath>..\packages\Coypu.2.5.1\lib\net40\Coypu.dll</HintPath>
     </Reference>
+    <Reference Include="Coypu.NUnit">
+      <HintPath>..\packages\Coypu.NUnit.1.0.1\lib\net40\Coypu.NUnit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
@@ -218,6 +221,7 @@
     <Compile Include="Features\Steps\BaseStep.cs" />
     <Compile Include="Features\Steps\Constraints.cs" />
     <Compile Include="Features\Steps\Events.cs" />
+    <Compile Include="Features\Steps\Page.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -332,6 +336,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>6_introducing_authentication.feature.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\CSBlog.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

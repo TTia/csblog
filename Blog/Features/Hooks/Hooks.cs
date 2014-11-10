@@ -30,6 +30,7 @@ namespace Blog.Features.Hooks
             };
             sessionConfiguration.Driver = typeof(SeleniumWebDriver);
             sessionConfiguration.Browser = Coypu.Drivers.Browser.PhantomJS;
+            //sessionConfiguration.Timeout = TimeSpan.FromSeconds(10);
 
             _browser = new BrowserSession(sessionConfiguration);
             _browser.MaximiseWindow();

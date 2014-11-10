@@ -17,5 +17,11 @@ namespace Blog.Features.Steps
             Assert.True(browser.FindLink(pageName).Exists());
             browser.ClickLink(pageName);
         }
+
+        [When(@"il cursore si sposta sui collegamenti")]
+        public void QuandoIlCursoreSiSpostaSuiCollegamenti()
+        {
+            Assert.Fail();
+        }
     }
 }

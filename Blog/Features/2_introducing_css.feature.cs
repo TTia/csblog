@@ -89,7 +89,7 @@ namespace Blog.Features
 #line 13
     testRunner.And("è presente il pié di pagina", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 14
-    testRunner.Then("l\'intestazione è posizionata all\'inizio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.Then("l_intestazione è posizionata all_inizio", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 15
     testRunner.And("il piè di pagina è posizionato alla fine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
@@ -97,45 +97,47 @@ namespace Blog.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("l\'intestazione ed il piè di pagina")]
-        public virtual void LIntestazioneEdIlPieDiPagina()
+        [NUnit.Framework.DescriptionAttribute("l\'intestazione ed il piè di pagina hanno lo stesso schema di colori")]
+        public virtual void LIntestazioneEdIlPieDiPaginaHannoLoStessoSchemaDiColori()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("l\'intestazione ed il piè di pagina", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("l\'intestazione ed il piè di pagina hanno lo stesso schema di colori", ((string[])(null)));
 #line 17
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 20
+#line 18
     testRunner.Given("è presente l\'intestazione", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 21
+#line 19
     testRunner.And("l\'intestazione ha un colore di sfondo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 22
+#line 20
     testRunner.And("è presente il pié di pagina", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 23
+#line 21
     testRunner.And("il pié di pagina ha un colore di sfondo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 24
+#line 22
     testRunner.Then("intestazione e pié di pagina hanno lo stesso colore di sfondo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("tramite l\'intestazione è possibile navigare")]
+        [NUnit.Framework.DescriptionAttribute("tramite l\'intestazione è possibile navigare alle pagine dell\'autore e dell\'abstra" +
+            "ct")]
         [NUnit.Framework.TestCaseAttribute("Abstract", null)]
         [NUnit.Framework.TestCaseAttribute("Autore", null)]
         [NUnit.Framework.TestCaseAttribute("RBlog", null)]
-        public virtual void TramiteLIntestazioneEPossibileNavigare(string nomeDellaPagina, string[] exampleTags)
+        public virtual void TramiteLIntestazioneEPossibileNavigareAllePagineDellAutoreEDellAbstract(string nomeDellaPagina, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("tramite l\'intestazione è possibile navigare", exampleTags);
-#line 26
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("tramite l\'intestazione è possibile navigare alle pagine dell\'autore e dell\'abstra" +
+                    "ct", exampleTags);
+#line 24
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 29
+#line 25
     testRunner.Given("è presente l\'intestazione", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 30
+#line 26
     testRunner.And("l\'intestazione permette la navigazione", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 31
+#line 27
     testRunner.Then(string.Format("posso navigare verso \"{0}\"", nomeDellaPagina), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
@@ -145,19 +147,19 @@ namespace Blog.Features
         [NUnit.Framework.DescriptionAttribute("l\'intestazione contiene il titolo della pagina")]
         [NUnit.Framework.TestCaseAttribute("Abstract", null)]
         [NUnit.Framework.TestCaseAttribute("Autore", null)]
-        [NUnit.Framework.TestCaseAttribute("SBlog", null)]
+        [NUnit.Framework.TestCaseAttribute("CSBlog", null)]
         public virtual void LIntestazioneContieneIlTitoloDellaPagina(string nomeDellaPagina, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("l\'intestazione contiene il titolo della pagina", exampleTags);
-#line 39
+#line 34
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 40
+#line 35
     testRunner.Given(string.Format("navigo verso \"{0}\"", nomeDellaPagina), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 41
+#line 36
     testRunner.And("la pagina ha un titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 42
+#line 37
     testRunner.Then(string.Format("il titolo della pagina è uguale a \"{0}\"", nomeDellaPagina), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
@@ -168,36 +170,38 @@ namespace Blog.Features
         public virtual void LIntestazioneEsponeDeiSempliciEffettiCromatici()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("l\'intestazione espone dei semplici effetti cromatici", ((string[])(null)));
-#line 50
+#line 44
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 51
+#line 45
     testRunner.Given("è presente l\'intestazione", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 52
+#line 46
     testRunner.And("l\'intestazione permette la navigazione", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 53
+#line 47
     testRunner.And("i collegamenti non hanno sfondo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 54
+#line 48
     testRunner.When("il cursore si sposta sui collegamenti", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 55
+#line 49
     testRunner.Then("lo sfondo del collegamento cambia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("i collegamenti raffigurati tramite immagini devono")]
-        public virtual void ICollegamentiRaffiguratiTramiteImmaginiDevono()
+        [NUnit.Framework.DescriptionAttribute("i collegamenti raffigurati tramite immagini devono anche avere una descrizione te" +
+            "stuale")]
+        public virtual void ICollegamentiRaffiguratiTramiteImmaginiDevonoAncheAvereUnaDescrizioneTestuale()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("i collegamenti raffigurati tramite immagini devono", ((string[])(null)));
-#line 57
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("i collegamenti raffigurati tramite immagini devono anche avere una descrizione te" +
+                    "stuale", ((string[])(null)));
+#line 51
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 60
+#line 52
     testRunner.Given("sono presenti dei collegamenti raffigurati tramite immagini", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 61
+#line 53
     testRunner.Then("ogni collegamento ha una descrizione testuale", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
