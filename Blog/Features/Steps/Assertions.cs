@@ -47,11 +47,9 @@ namespace Blog.Features.Steps
         public void AlloraOgniCollegamentoHaUnaDescrizioneTestuale()
         {       
             IEnumerable<SnapshotElementScope> linked_images = browser.FindAllCss("a img");
-            //Assert.That(linked_images.All(li => li != null));
 
             foreach (var linked_image in linked_images)
             {
-                //Assert.That(linked_image.Exists());
                 Assert.NotNull(linked_image["alt"]);
                 Assert.IsNotEmpty(linked_image["alt"]);
             }
@@ -91,5 +89,34 @@ namespace Blog.Features.Steps
         {
             Assert.AreEqual(browser.Title, pageName);
         }
+
+        [Then(@"il post ""(.*)"" è stato creato con successo")]
+        public void AlloraIlPostEStatoCreatoConSuccesso(string title)
+        {
+            string noticeMessage = String.Format("Il post '{0}' è stato creato con successo.", title);
+            base.FindNotice(noticeMessage);
+        }
+
+        [Then(@"il post ""(.*)"" è leggibile su CSBlog")]
+        public void AlloraIlPostELeggibileSuCSBlog(string title)
+        {
+            browser.Visit("/");
+            browser.FindCss(".post_title a", text: title).Exists();
+        }
+
+        [Then(@"il post ""(.*)"" è stato cancellato con successo")]
+        public void AlloraIlPostEStatoCancellatoConSuccesso(string title)
+        {
+            string noticeMessage = String.Format("Il post '{0}' è stato cancellato con successo.", title);
+            base.FindNotice(noticeMessage);
+        }
+
+        [Then(@"compare l'errore ""(.*)""")]
+        public void AlloraCompareLErrore(string errorMessage)
+        {
+            Assert.That(browser.HasContent(errorMessage));
+        }
+
+
     }
 }

@@ -71,7 +71,7 @@ namespace Blog.Features
         {
 #line 8
   #line 9
-    testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line hidden
         }
         

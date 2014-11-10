@@ -21,7 +21,6 @@ namespace Blog.Features
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Gestione dei post")]
     [NUnit.Framework.CategoryAttribute("cap3")]
-    [NUnit.Framework.CategoryAttribute("clear")]
     public partial class GestioneDeiPostFeature
     {
         
@@ -36,8 +35,7 @@ namespace Blog.Features
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("it-IT"), "Gestione dei post", "Come Autore\nVorrei poter inserire, modificare e rimuovere dei post su SBlog\nPer p" +
                     "oter documentare la mia tesi", ProgrammingLanguage.CSharp, new string[] {
-                        "cap3",
-                        "clear"});
+                        "cap3"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -73,35 +71,37 @@ namespace Blog.Features
         {
 #line 8
   #line 9
-    testRunner.Given("apro SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 10
-    testRunner.Given("mi autentico come \"mattia@SBlog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Scrittura di un nuovo post")]
+        [NUnit.Framework.CategoryAttribute("clear")]
         public virtual void ScritturaDiUnNuovoPost()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Scrittura di un nuovo post", ((string[])(null)));
-#line 12
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Scrittura di un nuovo post", new string[] {
+                        "clear"});
+#line 13
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 13
-    testRunner.Given("il post \"Lorem Ipsum\" non è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 14
-    testRunner.And("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Given("il post \"Lorem Ipsum\" non è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 15
-    testRunner.When("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.And("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 16
-    testRunner.And("inserisco del testo riempitivo come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.When("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 17
-    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("inserisco del testo riempitivo come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 18
-    testRunner.Then("il post \"Lorem Ipsum\" è stato creato con successo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 19
-    testRunner.And("il post \"Lorem Ipsum\" è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Then("il post \"Lorem Ipsum\" è stato creato con successo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 20
+    testRunner.And("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -111,72 +111,76 @@ namespace Blog.Features
         public virtual void CancellazioneDiUnPost()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancellazione di un post", ((string[])(null)));
-#line 21
+#line 22
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 22
-    testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 23
-    testRunner.When("cancello il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 24
-    testRunner.Then("il post \"Lorem Ipsum\" è stato cancellato con successo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.When("cancello il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 25
-    testRunner.And("il post \"Lorem Ipsum\" non è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Then("il post \"Lorem Ipsum\" è stato cancellato con successo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 26
+    testRunner.And("il post \"Lorem Ipsum\" non è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Modifica di un post")]
+        [NUnit.Framework.CategoryAttribute("clear")]
         public virtual void ModificaDiUnPost()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modifica di un post", ((string[])(null)));
-#line 27
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modifica di un post", new string[] {
+                        "clear"});
+#line 29
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 28
-    testRunner.Given("il post \"Lorem Ipsum2\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 29
-    testRunner.When("modifico il post \"Lorem Ipsum2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 30
-    testRunner.And("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Given("il post \"Lorem Ipsum2\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 31
-    testRunner.And("inserisco \"Questo post è stato modificato\" come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.When("modifico il post \"Lorem Ipsum2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 32
-    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 33
-    testRunner.Then("il post \"Lorem Ipsum2\" non è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.And("inserisco \"Questo post è stato modificato\" come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 34
-    testRunner.And("il post \"Lorem Ipsum\" è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 35
+    testRunner.Then("il post \"Lorem Ipsum2\" non è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 36
+    testRunner.And("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Tentativo di creazione di un post duplicato")]
+        [NUnit.Framework.CategoryAttribute("clear")]
         public virtual void TentativoDiCreazioneDiUnPostDuplicato()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tentativo di creazione di un post duplicato", ((string[])(null)));
-#line 36
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tentativo di creazione di un post duplicato", new string[] {
+                        "clear"});
+#line 39
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 37
-    testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 38
-    testRunner.Given("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 39
-    testRunner.When("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 40
-    testRunner.And("inserisco del testo riempitivo come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 41
-    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Given("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 42
-    testRunner.Then("compare l\'errore \"Il titolo è già presente.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.When("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 43
-    testRunner.And("il post \"Lorem Ipsum\" è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("inserisco del testo riempitivo come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 44
+    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 45
+    testRunner.Then("compare l\'errore \"Il titolo è già presente.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 46
+    testRunner.And("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -186,22 +190,22 @@ namespace Blog.Features
         public virtual void TentativoDiCreazioneDiUnPostConTitoloInvalido()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tentativo di creazione di un post con titolo invalido", ((string[])(null)));
-#line 45
+#line 48
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 46
-    testRunner.Given("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 47
-    testRunner.When("inserisco \"LI\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 48
-    testRunner.And("inserisco del testo riempitivo come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 49
-    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Given("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 50
-    testRunner.Then("compare l\'errore \"Il titolo deve essere compreso fra 5 e 100 caratteri.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.When("inserisco \"LI\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 51
-    testRunner.And("il post \"LI\" non è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("inserisco del testo riempitivo come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 52
+    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 53
+    testRunner.Then("compare l\'errore \"Il titolo deve essere compreso fra 5 e 100 caratteri.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 54
+    testRunner.And("il post \"LI\" non è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -211,22 +215,22 @@ namespace Blog.Features
         public virtual void TentativoDiCreazioneDiUnPostConContenutoInvalido()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tentativo di creazione di un post con contenuto invalido", ((string[])(null)));
-#line 53
+#line 56
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 54
-    testRunner.Given("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 55
-    testRunner.When("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 56
-    testRunner.And("inserisco \"Body\" come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 57
-    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Given("apro la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 58
-    testRunner.Then("compare l\'errore \"Il post deve essere almeno di 5 caratteri.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.When("inserisco \"Lorem Ipsum\" come titolo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 59
-    testRunner.And("il post \"Lorem Ipsum\" non è leggibile su SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.And("inserisco \"Body\" come contenuto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 60
+    testRunner.And("salvo il post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 61
+    testRunner.Then("compare l\'errore \"Il post deve essere almeno di 5 caratteri.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 62
+    testRunner.And("il post \"Lorem Ipsum\" non è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();
         }

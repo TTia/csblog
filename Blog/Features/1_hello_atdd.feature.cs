@@ -75,7 +75,7 @@ namespace Blog.Features
 #line 8
   this.ScenarioSetup(scenarioInfo);
 #line 9
-    testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 10
     testRunner.Then("posso visitare la pagina dell\'autore", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 11
@@ -94,7 +94,7 @@ namespace Blog.Features
 #line 13
   this.ScenarioSetup(scenarioInfo);
 #line 14
-    testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 15
     testRunner.When(string.Format("navigo verso \"{0}\"", nomeDellaPagina), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 16
