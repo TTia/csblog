@@ -75,6 +75,8 @@ namespace Blog.Controllers
         // GET: /Post/Create
         public ActionResult Create()
         {
+            if (!isAuthorized())
+                return redirectToLoginPage();
             ViewBag.authorId = new SelectList(db.Authors, "id", "email");
             return View();
         }
@@ -86,6 +88,8 @@ namespace Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,authorId,title,body,createdAt,updatedAt")] Post post)
         {
+            if (!isAuthorized())
+                return redirectToLoginPage();
             if (ModelState.IsValid)
             {
                 post.id = Guid.NewGuid();
@@ -105,6 +109,8 @@ namespace Blog.Controllers
         // GET: /Post/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (!isAuthorized())
+                return redirectToLoginPage();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -126,6 +132,8 @@ namespace Blog.Controllers
         public ActionResult Edit([Bind(Include = "id,authorId,title,body,createdAt,updatedAt")] Post post)
         //public ActionResult Edit([Bind(Include = "title,body")] Post post)
         {
+            if (!isAuthorized())
+                return redirectToLoginPage();
             if (ModelState.IsValid)
             {
                 var previousVersion = db.Posts.Find(post.id);
@@ -144,6 +152,8 @@ namespace Blog.Controllers
         // GET: /Post/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (!isAuthorized())
+                return redirectToLoginPage();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -161,11 +171,23 @@ namespace Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
+            if (!isAuthorized())
+                return redirectToLoginPage();
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
             TempData["notice"] = String.Format("Il post '{0}' è stato cancellato con successo.", post.title);
             return RedirectToAction("Index");
+        }
+
+        protected bool isAuthorized()
+        {
+            return Session["author_id"] != null;
+        }
+
+        protected ActionResult redirectToLoginPage() {
+            TempData["notice"] = "Devi prima effettuare l'accesso.";
+            return Redirect("~/Author/Login");        
         }
 
         protected override void Dispose(bool disposing)

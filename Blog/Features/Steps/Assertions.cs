@@ -45,7 +45,7 @@ namespace Blog.Features.Steps
 
         [Then(@"ogni collegamento ha una descrizione testuale")]
         public void AlloraOgniCollegamentoHaUnaDescrizioneTestuale()
-        {       
+        {
             IEnumerable<SnapshotElementScope> linked_images = browser.FindAllCss("a img");
 
             foreach (var linked_image in linked_images)
@@ -113,7 +113,8 @@ namespace Blog.Features.Steps
         [Then(@"ogni post ha un titolo")]
         public void AlloraOgniPostHaUnTitolo()
         {
-            foreach (var post in browser.FindAllCss(".post")) {
+            foreach (var post in browser.FindAllCss(".post"))
+            {
                 Assert.That(post.FindCss(".post_title", new Options { Match = Match.Single }).Exists());
             }
         }
@@ -162,6 +163,62 @@ namespace Blog.Features.Steps
             var post = base.findPostByTitle(title);
             Assert.That(post.FindCss(".post_title", new Options { Match = Match.Single }).Exists());
         }
+        [Then(@"tramite l'intestazione posso autenticarmi")]
+        public void AlloraTramiteLIntestazionePossoAutenticarmi()
+        {
+            var header = base.header;
+            Assert.That(header.FindLink("Login").Exists());
+        }
+
+        [Then(@"l'utente è autenticato")]
+        public void AlloraLUtenteEAutenticato()
+        {
+            base.FindNotice("Login effettuato, benvenuto!");
+        }
+
+        [Then(@"tramite l'intestazione posso disconnettermi")]
+        public void AlloraTramiteLIntestazionePossoDisconnettermi()
+        {
+            var header = base.header;
+            var logoutLink = header.FindLink("Esci", new Options { TextPrecision = TextPrecision.Substring });
+
+            Assert.That(logoutLink.Exists());
+            Assert.That(logoutLink["href"].Contains("/Author/Logout"));
+        }
+
+        [Then(@"tramite l'intestazione non posso autenticarmi")]
+        public void AlloraTramiteLIntestazioneNonPossoAutenticarmi()
+        {
+            var header = base.header;
+            var logoutLink = header.FindLink("Esci", new Options { TextPrecision = TextPrecision.Substring });
+
+            Assert.That(logoutLink.Exists());
+            Assert.That(logoutLink["href"].Contains("/Author/Logout"));
+            Assert.That(!header.FindLink("Login").Exists());
+        }
+
+
+        [Then(@"compare l'errore di autenticazione ""(.*)""")]
+        public void AlloraCompareLErroreDiAutenticazione(string p0)
+        {
+            FindNotice("Credenziali invalide.");
+        }
+
+        [Then(@"non posso visitare la pagina per la creazione di un nuovo post")]
+        public void AlloraNonPossoVisitareLaPaginaPerLaCreazioneDiUnNuovoPost()
+        {
+            browser.Visit("/Post/Create");
+            base.FindNotice("Devi prima effettuare l'accesso.");
+        }
+
+        [Then(@"posso navigare verso la pagina per la creazione di un nuovo post")]
+        public void AlloraPossoNavigareVersoLaPaginaPerLaCreazioneDiUnNuovoPost()
+        {
+            browser.Visit("/Post/Create");
+            Assert.That(browser, Shows.No.Content("Devi prima effettuare l'accesso."));
+            Assert.That(browser, Shows.Content("Scrivi un nuovo post"));
+        }
+
 
     }
 }

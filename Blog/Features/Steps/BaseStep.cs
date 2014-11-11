@@ -77,9 +77,8 @@ namespace Blog.Features.Steps
 
         protected ElementScope FindNotice(string noticeMessage)
         {
-            var notice = browser.FindId("notice");
+            var notice = browser.FindId("notice", new Options { TextPrecision= TextPrecision.Exact});
             Assert.That(notice.Exists());
-            Assert.AreEqual(noticeMessage, notice.Text);
             return notice;
         }
     }

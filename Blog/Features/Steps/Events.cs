@@ -72,5 +72,11 @@ namespace Blog.Features.Steps
             post.ClickLink(title);
         }
 
+        [When(@"quando mi disconnetto")]
+        public void QuandoQuandoMiDisconnetto()
+        {
+            browser.ClickLink("Esci", new Options { TextPrecision = TextPrecision.Substring });
+        }
+
     }
 }

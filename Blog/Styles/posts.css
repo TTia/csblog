@@ -1,5 +1,5 @@
 .posts #notice {
-    margin: 1em 15%;
+    margin: 1em 10%;
     text-align: center;
 }
 
@@ -12,11 +12,10 @@
 }
 
 .posts .post {
-    margin: 1em 15%;
     border-bottom: 1px solid #BBBBBB;
     overflow: auto;
     font-family: sans-serif;
-    margin: 1em 15%;
+    margin: 1em 10%;
 }
 
     .posts .post .post_title a {

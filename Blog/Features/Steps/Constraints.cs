@@ -75,6 +75,7 @@ namespace Blog.Features.Steps
         }
 
         [Given(@"mi autentico come ""(.*)""")]
+        [When(@"mi autentico come ""(.*)""")]
         public void DatoMiAutenticoCome(string email)
         {
             string password = "password";
@@ -122,6 +123,17 @@ namespace Blog.Features.Steps
 
             browser.Visit("/");
             browser.FindCss(".post_title a", text: title).Exists();
+        }
+
+        [Given(@"l'utente non è autenticato")]
+        public void DatoLUtenteNonEAutenticato()
+        {
+            Assert.That(browser.FindLink("Login").Exists());
+            Assert.That(!browser.FindId("log_out_link").Exists());
+            /*
+            var selenium = ((OpenQA.Selenium.Remote.RemoteWebDriver)browser.Native);
+            var cookie = selenium.Manage().Cookies.GetCookieNamed("ASP.NET_SessionId");
+            */
         }
 
     }

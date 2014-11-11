@@ -118,10 +118,10 @@ namespace Blog.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Disconnessione da SBlog")]
-        public virtual void DisconnessioneDaSBlog()
+        [NUnit.Framework.DescriptionAttribute("Disconnessione da CSBlog")]
+        public virtual void DisconnessioneDaCSBlog()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Disconnessione da SBlog", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Disconnessione da CSBlog", ((string[])(null)));
 #line 23
   this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -135,7 +135,7 @@ namespace Blog.Features
 #line 27
     testRunner.When("quando mi disconnetto", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 28
-    testRunner.And("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Then("tramite l\'intestazione posso autenticarmi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -152,8 +152,10 @@ namespace Blog.Features
 #line 31
     testRunner.Given("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 32
-    testRunner.When("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+ testRunner.Then("non posso visitare la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 33
+    testRunner.When("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 34
     testRunner.Then("posso navigare verso la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
@@ -164,20 +166,18 @@ namespace Blog.Features
         public virtual void AutenticazioneFallitaSuSBlog()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Autenticazione fallita su SBlog", ((string[])(null)));
-#line 35
+#line 36
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 36
-    testRunner.Given("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 37
-    testRunner.Then("tramite l\'intestazione posso autenticarmi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.Given("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 38
-    testRunner.When("mi autentico come \"anonymous@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.Then("tramite l\'intestazione posso autenticarmi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 39
-    testRunner.Then("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.When("mi autentico come \"anonymous@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 40
-    testRunner.And("compare l\'errore di autenticazione \"Credenziali invalide.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+    testRunner.Then("compare l\'errore di autenticazione \"Credenziali invalide.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
         }

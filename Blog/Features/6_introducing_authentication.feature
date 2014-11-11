@@ -20,15 +20,16 @@ Funzionalità: Autenticazione su SBlog
     E tramite l'intestazione non posso autenticarmi
     E tramite l'intestazione posso disconnettermi
 
-  Scenario: Disconnessione da SBlog
+  Scenario: Disconnessione da CSBlog
     Dato l'utente non è autenticato
     Quando mi autentico come "ttia@csblog.io"
     Allora tramite l'intestazione posso disconnettermi
     Quando quando mi disconnetto
-    E l'utente non è autenticato
+    Allora tramite l'intestazione posso autenticarmi
 
   Scenario: Possibilità di compiere operazioni sensibili avendo compiuto l'accesso
     Dato l'utente non è autenticato
+	Allora non posso visitare la pagina per la creazione di un nuovo post
     Quando mi autentico come "ttia@csblog.io"
     Allora posso navigare verso la pagina per la creazione di un nuovo post
 
@@ -36,5 +37,4 @@ Funzionalità: Autenticazione su SBlog
     Dato l'utente non è autenticato
     Allora tramite l'intestazione posso autenticarmi
     Quando mi autentico come "anonymous@csblog.io"
-    Allora l'utente non è autenticato
-    E compare l'errore di autenticazione "Credenziali invalide."
+    Allora compare l'errore di autenticazione "Credenziali invalide."
