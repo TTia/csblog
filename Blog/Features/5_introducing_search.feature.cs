@@ -21,7 +21,6 @@ namespace Blog.Features
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Ricerca fra i post")]
     [NUnit.Framework.CategoryAttribute("cap5")]
-    [NUnit.Framework.CategoryAttribute("clear")]
     public partial class RicercaFraIPostFeature
     {
         
@@ -36,8 +35,7 @@ namespace Blog.Features
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("it-IT"), "Ricerca fra i post", "Come Lettore\nVorrei poter ricercare i post su RBlog\nPer poter navigare fra i cont" +
                     "enuti più velocemente", ProgrammingLanguage.CSharp, new string[] {
-                        "cap5",
-                        "clear"});
+                        "cap5"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -73,19 +71,19 @@ namespace Blog.Features
         {
 #line 8
   #line 9
-    testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 10
     testRunner.Given("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Autocompletamento della ricerca")]
-        [NUnit.Framework.IgnoreAttribute()]
-        public virtual void AutocompletamentoDellaRicerca()
+        [NUnit.Framework.DescriptionAttribute("Autocompletamento della ricerca - Mini")]
+        [NUnit.Framework.CategoryAttribute("clear")]
+        public virtual void AutocompletamentoDellaRicerca_Mini()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Autocompletamento della ricerca", new string[] {
-                        "ignore"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Autocompletamento della ricerca - Mini", new string[] {
+                        "clear"});
 #line 13
   this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -98,17 +96,40 @@ namespace Blog.Features
     testRunner.When("inserisco il testo \"Lorem\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 17
     testRunner.Then("viene proposto il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
-#line 18
-    testRunner.When("inserisco il testo \"lor\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 19
-    testRunner.Then("viene proposto il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Autocompletamento della ricerca")]
+        [NUnit.Framework.CategoryAttribute("clear")]
+        public virtual void AutocompletamentoDellaRicerca()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Autocompletamento della ricerca", new string[] {
+                        "clear"});
 #line 20
-    testRunner.When("inserisco il testo \"xyz\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+  this.ScenarioSetup(scenarioInfo);
+#line 8
+  this.FeatureBackground();
 #line 21
-    testRunner.Then("non è proposto alcun post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.Given("nell\'intestazione è presente la barra di ricerca", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 22
-    testRunner.When("inserisco il testo \"L\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 23
+    testRunner.When("inserisco il testo \"Lorem\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 24
+    testRunner.Then("viene proposto il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 25
+    testRunner.When("inserisco il testo \"lor\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 26
+    testRunner.Then("viene proposto il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 27
+    testRunner.When("inserisco il testo \"xyz\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 28
+    testRunner.Then("non è proposto alcun post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+#line 29
+    testRunner.When("inserisco il testo \"L\" da ricercare", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 30
     testRunner.Then("non è proposto alcun post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
@@ -116,26 +137,26 @@ namespace Blog.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Ricerca di un post esistente")]
-        [NUnit.Framework.IgnoreAttribute()]
+        [NUnit.Framework.CategoryAttribute("clear")]
         public virtual void RicercaDiUnPostEsistente()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ricerca di un post esistente", new string[] {
-                        "ignore"});
-#line 26
+                        "clear"});
+#line 33
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 27
+#line 34
     testRunner.Given("nell\'intestazione è presente la barra di ricerca", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 28
+#line 35
     testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 29
+#line 36
     testRunner.When("ricerco \"Lorem\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 30
+#line 37
     testRunner.Then("il post \"Lorem Ipsum\" è leggibile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
-#line 31
+#line 38
     testRunner.When("ricerco \"lo\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 32
+#line 39
     testRunner.Then("il post \"Lorem Ipsum\" è leggibile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();
@@ -143,22 +164,22 @@ namespace Blog.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Ricerca di un post non esistente")]
-        [NUnit.Framework.IgnoreAttribute()]
+        [NUnit.Framework.CategoryAttribute("clear")]
         public virtual void RicercaDiUnPostNonEsistente()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ricerca di un post non esistente", new string[] {
-                        "ignore"});
-#line 35
+                        "clear"});
+#line 42
   this.ScenarioSetup(scenarioInfo);
 #line 8
   this.FeatureBackground();
-#line 36
+#line 43
     testRunner.Given("nell\'intestazione è presente la barra di ricerca", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 37
+#line 44
     testRunner.Given("il post \"Lorem Ipsum\" esiste", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
-#line 38
+#line 45
     testRunner.When("ricerco \"XXX\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 39
+#line 46
     testRunner.Then("il post \"Lorem Ipsum\" non è leggibile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
             this.ScenarioCleanup();

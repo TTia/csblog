@@ -84,5 +84,27 @@ namespace Blog.Features.Steps
             base.footer.Click();
         }
 
+        [When(@"inserisco il testo ""(.*)"" da ricercare")]
+        public void QuandoInseriscoIlTestoDaRicercare(string query)
+        {
+            var header = base.header;
+            var searchInput = header.FindId("search_input_text");
+            Assert.That(searchInput.Exists());
+
+            searchInput.FillInWith(query);
+        }
+
+        [When(@"ricerco ""(.*)""")]
+        public void QuandoRicerco(string query)
+        {
+            var header = base.header;
+            var searchInput = header.FindId("search_input_text");
+            searchInput.FillInWith(query);
+
+            var submitIcon = header.FindId("search_icon");
+            Assert.That(submitIcon.Exists());
+            submitIcon.Click();
+        }
+
     }
 }

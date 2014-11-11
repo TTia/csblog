@@ -136,5 +136,15 @@ namespace Blog.Features.Steps
             */
         }
 
+        [Given(@"nell'intestazione è presente la barra di ricerca")]
+        public void DatoNellIntestazioneEPresenteLaBarraDiRicerca()
+        {
+            var header = base.header;
+            Assert.That(header.FindId("search_link").Exists());
+            Assert.That(header.FindCss("form").Exists());
+            Assert.That(header.FindId("search_input_text").Exists());
+        }
+
+
     }
 }

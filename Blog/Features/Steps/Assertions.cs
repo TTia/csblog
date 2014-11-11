@@ -233,5 +233,35 @@ namespace Blog.Features.Steps
             Assert.That(footer.FindId("woodstock").Exists());
         }
 
+        [Then(@"viene proposto il post ""(.*)""")]
+        public void AlloraVienePropostoIlPost(string title)
+        {
+            var suggestion = browser.FindCss(".ui-menu-item", title);
+            Assert.That(suggestion.Exists());
+        }
+
+        [Then(@"non è proposto alcun post")]
+        public void AlloraNonEPropostoAlcunPost()
+        {
+            Assert.That(browser, Shows.No.Css(".ui-menu-item"));
+        }
+
+        [Then(@"il post ""(.*)"" è leggibile")]
+        public void AlloraIlPostELeggibile(string title)
+        {
+            base.findPostByTitle(title);
+        }
+
+        [Then(@"il post ""(.*)"" non è leggibile")]
+        public void AlloraIlPostNonELeggibile(string title)
+        {
+            var posts = browser.FindAllCss(".post");
+
+            foreach (var post in posts)
+            {
+                Assert.That(post, Shows.No.Content(title, new Options { TextPrecision = TextPrecision.Substring }));
+            }
+        }
+
     }
 }

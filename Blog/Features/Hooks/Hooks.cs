@@ -30,6 +30,7 @@ namespace Blog.Features.Hooks
             };
             sessionConfiguration.Driver = typeof(SeleniumWebDriver);
             sessionConfiguration.Browser = Coypu.Drivers.Browser.PhantomJS;
+            sessionConfiguration.Timeout = TimeSpan.FromSeconds(5);
 
             _browser = new BrowserSession(sessionConfiguration);
             _browser.MaximiseWindow();
@@ -45,16 +46,30 @@ namespace Blog.Features.Hooks
                 login();
 
                 string LoremIpsumTitle = "Lorem Ipsum";
-                browser.Visit("/");
-                var post = browser.FindAllCss(".post")
-                    .First(
-                        p => p.FindLink(LoremIpsumTitle,
-                            new Options { TextPrecision = TextPrecision.Substring })
-                            .Exists());
+                string xpathQuery = String.Format(
+                    "//div[@class = 'post'][p/a[contains(text(),'{0}')]]", LoremIpsumTitle);
 
-                post.FindCss(".remove_post_button").Click();
-                browser.ClickButton("Confermi la rimozione?");
+                browser.Visit("/");
+                foreach (var post in browser.FindAllXPath(xpathQuery)) {
+                    post.FindCss(".remove_post_button").Click();
+                    browser.ClickButton("Confermi la rimozione?");                    
+                }
+                /*
+                foreach (var post in browser.FindAllCss(".post"))
+                {
+                    if (!post.FindCss(".post_title",
+                                        LoremIpsumTitle,
+                                        new Options { TextPrecision = TextPrecision.Substring })
+                                            .Exists())
+                    {
+                        continue;
+                    }
+                    post.FindCss(".remove_post_button").Click();
+                    browser.ClickButton("Confermi la rimozione?");
+                }
+                */
             }
+            //browser.SaveScreenshot("screenshot.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             _browser.Dispose();
         }
 
@@ -71,7 +86,6 @@ namespace Blog.Features.Hooks
             browser.FillIn("Password").With(password);
             browser.ClickButton("Login");
         }
-
 
     }
 }
