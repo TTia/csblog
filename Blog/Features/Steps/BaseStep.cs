@@ -39,11 +39,25 @@ namespace Blog.Features.Steps
         }
         protected void InsertBody()
         {
-            string post = "Bla ";
-            while (post.Length < 600)
-            {
-                post += post + " bla";
-            }
+            string post = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."+
+                            "Nullam sit amet odio tincidunt, pretium urna eu, euismod mauris."+
+                            "Pellentesque ut augue ut leo posuere commodo ac vel odio."+
+                            "Vivamus aliquam mollis nunc, at viverra dui pellentesque sit amet."+
+                            "Donec sed ullamcorper ipsum. Nam a metus pellentesque, tempor lacus ut, bibendum lorem."+
+                            "Sed volutpat eget dui in cursus. Suspendisse a quam ut diam ultricies mattis."+
+                            "Morbi malesuada arcu vel massa aliquam tempus.\n"+
+                            "Aenean vitae elementum odio. Maecenas eget metus elementum nisl fermentum rhoncus non et orci."+
+                            "Donec condimentum metus magna, sed posuere sapien vestibulum ac. Cras ut tincidunt enim."+
+                            "Phasellus aliquam, justo ut convallis dictum, nibh leo pretium nisi,"+
+                            "mollis pellentesque lacus ipsum id dolor. Sed ut ipsum sed leo rhoncus maximus."+
+                            "Duis at odio quis leo tristique ornare sit amet quis orci."+
+                            "Pellentesque eleifend sem eu mauris eleifend condimentum."+
+                            "Ut non luctus odio. Suspendisse potenti."+
+                            "Suspendisse ultrices eu urna ac tincidunt."+
+                            "Donec eget fermentum massa."+
+                            "Nullam dolor ante, placerat vitae mi eu, auctor blandit sapien."+
+                            "Suspendisse vel velit ac quam fermentum pretium."+
+                            "Nulla congue lorem et dui dictum pretium vitae scelerisque nunc.";
             browser.FillIn("Post").With(post);
         }
 

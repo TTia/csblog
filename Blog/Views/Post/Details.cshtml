@@ -19,9 +19,9 @@
                 @Html.DisplayFor(model => model.updatedAt)
             </div>
         }
-        <p class="post_content">
+        <p class="post_body">
             @Html.DisplayFor(model => model.body)
         </p>
-        @Html.Partial("_PostActionsPartial", new ViewDataDictionary { { "id", Model.id }, {"title", Model.title} });
+        @Html.Partial("_PostActionsPartial", new ViewDataDictionary { { "id", Model.id }, {"title", Model.title} })
     </div>
 </div>

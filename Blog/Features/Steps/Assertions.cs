@@ -136,5 +136,32 @@ namespace Blog.Features.Steps
             }
         }
 
+        [Then(@"il contenuto del post ""(.*)"" è un_anteprima dell_intero post")]
+        public void AlloraIlContenutoDelPostEUn_AnteprimaDell_InteroPost(string title)
+        {
+            var post = base.findPostByTitle(title);
+            string body = post.FindCss(".post_body").Text;
+            Assert.IsNotEmpty(body);
+            Assert.Less(body.Length, 550);
+            Assert.That(post, Shows.Content("Leggi il resto"));
+        }
+
+        [Then(@"il contenuto del post ""(.*)"" rappresenta l'intero post")]
+        public void AlloraIlContenutoDelPostRappresentaLInteroPost(string title)
+        {
+            var post = base.findPostByTitle(title);
+            string body = post.FindCss(".post_body").Text;
+            Assert.IsNotEmpty(body);
+            Assert.Greater(body.Length, 550);
+            Assert.That(post, Shows.No.Content("Leggi il resto"));
+        }
+
+        [Then(@"il titolo del post è ""(.*)""")]
+        public void AlloraIlTitoloDelPostE(string title)
+        {
+            var post = base.findPostByTitle(title);
+            Assert.That(post.FindCss(".post_title", new Options { Match = Match.Single }).Exists());
+        }
+
     }
 }

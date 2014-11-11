@@ -115,7 +115,7 @@ namespace Blog.Features
 #line 21
     testRunner.And("il post \"Lorem Ipsum\" è leggibile su CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line 22
-    testRunner.Then("il contenuto del post \"Lorem Ipsum\" è un\'anteprima dell\'intero post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
+    testRunner.Then("il contenuto del post \"Lorem Ipsum\" è un_anteprima dell_intero post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 23
     testRunner.When("espando il post \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 24
@@ -142,10 +142,8 @@ namespace Blog.Features
 #line 30
     testRunner.Then("il titolo del post è \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 31
-    testRunner.And("il contenuto del titolo include \"Lorem ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 32
     testRunner.And("la pagina è intitolata \"Lorem Ipsum\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line 33
+#line 32
     testRunner.And("posso tornare alla pagina iniziale", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             this.ScenarioCleanup();

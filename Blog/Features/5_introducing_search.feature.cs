@@ -75,7 +75,7 @@ namespace Blog.Features
   #line 9
     testRunner.Given("apro RBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 10
-    testRunner.Given("mi autentico come \"mattia@rblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line hidden
         }
         

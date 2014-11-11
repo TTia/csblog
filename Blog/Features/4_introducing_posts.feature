@@ -19,7 +19,7 @@ Funzionalità: Navigazione dei post
   Scenario: Espansione dell'anteprima di un post
     Dato il post "Lorem Ipsum" esiste
     E il post "Lorem Ipsum" è leggibile su CSBlog
-    Allora il contenuto del post "Lorem Ipsum" è un'anteprima dell'intero post
+    Allora il contenuto del post "Lorem Ipsum" è un_anteprima dell_intero post
     Quando espando il post "Lorem Ipsum"
     Allora il contenuto del post "Lorem Ipsum" rappresenta l'intero post
 
@@ -28,6 +28,5 @@ Funzionalità: Navigazione dei post
     E il post "Lorem Ipsum" è leggibile su CSBlog
     Quando espando il post "Lorem Ipsum"
     Allora il titolo del post è "Lorem Ipsum"
-    E il contenuto del titolo include "Lorem ipsum"
     E la pagina è intitolata "Lorem Ipsum"
     E posso tornare alla pagina iniziale

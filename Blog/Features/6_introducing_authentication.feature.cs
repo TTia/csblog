@@ -71,7 +71,7 @@ namespace Blog.Features
         {
 #line 8
   #line 9
-    testRunner.Given("apro SBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
+    testRunner.Given("apro CSBlog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line hidden
         }
         
@@ -106,7 +106,7 @@ namespace Blog.Features
 #line 17
     testRunner.Then("tramite l\'intestazione posso autenticarmi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 18
-    testRunner.When("mi autentico come \"ttia@sblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.When("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 19
     testRunner.Then("l\'utente è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 20
@@ -129,7 +129,7 @@ namespace Blog.Features
 #line 24
     testRunner.Given("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 25
-    testRunner.When("mi autentico come \"ttia@sblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.When("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 26
     testRunner.Then("tramite l\'intestazione posso disconnettermi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 27
@@ -152,7 +152,7 @@ namespace Blog.Features
 #line 31
     testRunner.Given("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dato ");
 #line 32
-    testRunner.When("mi autentico come \"ttia@sblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.When("mi autentico come \"ttia@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 33
     testRunner.Then("posso navigare verso la pagina per la creazione di un nuovo post", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line hidden
@@ -173,7 +173,7 @@ namespace Blog.Features
 #line 37
     testRunner.Then("tramite l\'intestazione posso autenticarmi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 38
-    testRunner.When("mi autentico come \"anonymous@sblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+    testRunner.When("mi autentico come \"anonymous@csblog.io\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 39
     testRunner.Then("l\'utente non è autenticato", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Allora ");
 #line 40

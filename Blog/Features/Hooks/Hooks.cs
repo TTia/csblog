@@ -52,7 +52,6 @@ namespace Blog.Features.Hooks
                             new Options { TextPrecision = TextPrecision.Substring })
                             .Exists());
 
-                browser.SaveScreenshot("screenshot.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                 post.FindCss(".remove_post_button").Click();
                 browser.ClickButton("Confermi la rimozione?");
             }

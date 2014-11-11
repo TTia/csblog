@@ -7,7 +7,7 @@ Funzionalità: Ricerca fra i post
 
   Contesto: 
     Dato apro RBlog
-    Dato mi autentico come "mattia@rblog.io"
+    Dato mi autentico come "ttia@csblog.io"
 
   @ignore
   Scenario: Autocompletamento della ricerca

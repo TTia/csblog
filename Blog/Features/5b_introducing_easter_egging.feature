@@ -6,7 +6,7 @@ Funzionalità: Easter Egging
   Per firmare il mio lavoro
 
   Contesto:
-    Dato apro SBlog
+    Dato apro CSBlog
 
   Scenario: EasterEgg
     Dato non è presente il logo nell'intestazione

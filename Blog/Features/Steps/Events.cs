@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
+using Coypu;
 
 namespace Blog.Features.Steps
 {
@@ -62,6 +63,13 @@ namespace Blog.Features.Steps
             var post = findPostByTitle(title);
             post.FindCss(".remove_post_button").Click();
             browser.ClickButton("Confermi la rimozione?");
+        }
+
+        [When(@"espando il post ""(.*)""")]
+        public void QuandoEspandoIlPost(string title)
+        {
+            var post = base.findPostByTitle(title);
+            post.ClickLink(title);
         }
 
     }
