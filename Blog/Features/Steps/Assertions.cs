@@ -219,6 +219,19 @@ namespace Blog.Features.Steps
             Assert.That(browser, Shows.Content("Scrivi un nuovo post"));
         }
 
+        [Given(@"non è presente il logo nell'intestazione")]
+        public void DatoNonEPresenteIlLogoNellIntestazione()
+        {
+            Assert.That(base.footer, Shows.No.Css("img"));
+        }
+
+        [Then(@"è presente il logo")]
+        public void AlloraEPresenteIlLogo()
+        {
+            var footer = base.footer;
+            Assert.That(footer, Shows.Css("img"));
+            Assert.That(footer.FindId("woodstock").Exists());
+        }
 
     }
 }

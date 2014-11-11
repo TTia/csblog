@@ -78,5 +78,11 @@ namespace Blog.Features.Steps
             browser.ClickLink("Esci", new Options { TextPrecision = TextPrecision.Substring });
         }
 
+        [When(@"clicco sull'area del pié di pagina")]
+        public void QuandoCliccoSullAreaDelPieDiPagina()
+        {
+            base.footer.Click();
+        }
+
     }
 }
